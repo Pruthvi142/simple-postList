@@ -1,24 +1,60 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import postform from './components/postform'
+import postlist from './components/postlist'
+import {BrowserRouter,Link,Route,} from 'react-router-dom'
+import home from './components/home'
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      
+      <BrowserRouter>
+       <div>
+       {
+      
+      
+         
+              
+                 <ul>
+                   <li>
+                  <Link to ="/postlists" className="nav-link">Puslised</Link>
+                </li>
+                 <li>
+                 <Link to="/posts" className="nav-link"> New post</Link> 
+
+                </li>
+                
+                </ul>
+               
+        
+
+       }
+             
+                
+                
+
+              
+       
+       
+      
+      
+        <Route path="/" component={home} exact={true}/>
+             
+              <Route path="/posts" component={postform}/>
+              <Route path="/postlists" component={postlist} exact={true}/>
+         
+           
+              </div>
+
+
+
+
+
+
+
+
+       </BrowserRouter>
     </div>
   );
 }
